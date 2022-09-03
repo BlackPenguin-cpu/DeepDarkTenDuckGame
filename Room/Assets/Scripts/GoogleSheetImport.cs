@@ -5,21 +5,28 @@ using UnityEngine.Networking;
 
 public class GoogleSheetImport : MonoBehaviour
 {
-    string URL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=csv&range=A2:G";
+    string URL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=tsv&range=A2:G";
 
     private IEnumerator Start()
     {
         UnityWebRequest www = UnityWebRequest.Get(URL);
         yield return www.SendWebRequest();
+        SetItemSO(www.downloadHandler.text);
+        
+    }
+    void SetItemSO(string tsv)
+    {
+        string[] row = tsv.Split('\n');
+        int rowSize = row.Length;
+        int columnSize = row[0].Split('\t').Length;
 
-        string data = www.downloadHandler.text;
-        data.TrimEnd();
-        print(data);
-        char[] delimiterChars = { ',' };
-        string[] Txts = data.Split(delimiterChars);
-        for (int i = 0; i < Txts.Length; i++)
+        for (int i = 0; i < rowSize; i++)
         {
-            print(Txts[i]);
+            string[] column = row[i].Split('\t');
+            for (int j = 0; j < columnSize; j++)
+            {
+                print(column[j]);
+            }
         }
     }
 }
