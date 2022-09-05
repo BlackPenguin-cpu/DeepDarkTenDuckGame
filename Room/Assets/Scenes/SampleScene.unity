@@ -270,6 +270,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1148526517, guid: a22ddccd9ec8f8546a716c3154a9adb3, type: 3}
+      propertyPath: ItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: af51c0d3d13fa4b4d88d53a4d65c328f, type: 2}
     - target: {fileID: 6665305906069064711, guid: a22ddccd9ec8f8546a716c3154a9adb3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -318,5 +322,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junho
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1148526516, guid: a22ddccd9ec8f8546a716c3154a9adb3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a22ddccd9ec8f8546a716c3154a9adb3, type: 3}

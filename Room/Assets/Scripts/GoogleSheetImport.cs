@@ -5,8 +5,9 @@ using UnityEngine.Networking;
 
 public class GoogleSheetImport : MonoBehaviour
 {
-    string URL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=tsv&range=A2:G";
+    string URL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=tsv&range=A2:F";
 
+    [SerializeField] private Items ItemData;
     private IEnumerator Start()
     {
         UnityWebRequest www = UnityWebRequest.Get(URL);
@@ -25,7 +26,14 @@ public class GoogleSheetImport : MonoBehaviour
             string[] column = row[i].Split('\t');
             for (int j = 0; j < columnSize; j++)
             {
-                print(column[j]);
+                SAttackItemDictionary atkItem = ItemData.attackItems[i];
+                atkItem.itemName = column[0];
+                atkItem.type = (EItemType)(int.Parse(column[1]));
+                atkItem.dmg = float.Parse(column[2]);
+                atkItem.range = int.Parse(column[3]);
+                atkItem.cost = float.Parse(column[4]);
+                atkItem.cleanHitPoint = float.Parse(column[5]);
+
             }
         }
     }
