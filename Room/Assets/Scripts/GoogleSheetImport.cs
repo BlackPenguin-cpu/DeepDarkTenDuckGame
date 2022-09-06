@@ -5,17 +5,20 @@ using UnityEngine.Networking;
 
 public class GoogleSheetImport : MonoBehaviour
 {
-    string URL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=tsv&range=A2:F";
-
+    string atkURL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=tsv&range=A2:G";
+    string defURL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=tsv&range=A2:G&gid=1885389343";
     [SerializeField] private Items ItemData;
     private IEnumerator Start()
     {
-        UnityWebRequest www = UnityWebRequest.Get(URL);
-        yield return www.SendWebRequest();
-        SetItemSO(www.downloadHandler.text);
+        UnityWebRequest wwwAtk = UnityWebRequest.Get(atkURL);
+        UnityWebRequest wwwDef = UnityWebRequest.Get(defURL);
+        yield return wwwAtk.SendWebRequest();
+        SetItemSO(wwwAtk.downloadHandler.text, true);
+        yield return wwwDef.SendWebRequest();
+        SetItemSO(wwwDef.downloadHandler.text, false);
         
     }
-    void SetItemSO(string tsv)
+    void SetItemSO(string tsv , bool _isAtkData)
     {
         string[] row = tsv.Split('\n');
         int rowSize = row.Length;
@@ -26,14 +29,30 @@ public class GoogleSheetImport : MonoBehaviour
             string[] column = row[i].Split('\t');
             for (int j = 0; j < columnSize; j++)
             {
-                SAttackItemDictionary atkItem = ItemData.attackItems[i];
-                atkItem.itemName = column[0];
-                atkItem.type = (EItemType)(int.Parse(column[1]));
-                atkItem.dmg = float.Parse(column[2]);
-                atkItem.range = int.Parse(column[3]);
-                atkItem.cost = float.Parse(column[4]);
-                atkItem.cleanHitPoint = float.Parse(column[5]);
+                if (_isAtkData)
+                {
+                    SAttackItemDictionary atkItem = ItemData.attackItems[i];
+                    atkItem.itemName = column[0];
+                    atkItem.shopLevel = int.Parse(column[1]);
+                    atkItem.type = (EItemType)(int.Parse(column[2]));
+                    atkItem.dmg = float.Parse(column[3]);
+                    atkItem.range = int.Parse(column[4]);
+                    atkItem.cost = float.Parse(column[5]);
+                    atkItem.cleanHitPoint = float.Parse(column[6]);
 
+                }
+                else
+                {
+                    SShilldItemDictionary defItem = ItemData.shilldItems[i];
+                    defItem.itemName = column[0];
+                    defItem.shopLevel = int.Parse(column[1]);
+                    defItem.type = (EItemType)(int.Parse(column[2]));
+                    defItem.dmgReduction = float.Parse(column[3]);
+                    defItem.defCnt = int.Parse(column[4]);
+                    defItem.cost = float.Parse(column[5]);
+                    defItem.defSuccess = float.Parse(column[6]);
+
+                }
             }
         }
     }

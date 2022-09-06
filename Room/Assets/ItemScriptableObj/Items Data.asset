@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eee30d928256a34d90361a7280ca46b, type: 3}
+  m_Name: Items Data
+  m_EditorClassIdentifier: 
+  attackItems:
+  - itemName: "\uC5F0\uAE30 \uC8FC\uC785"
+    shopLevel: 1
+    type: 0
+    dmg: 50
+    range: 1
+    cost: 200
+    cleanHitPoint: 250
+  - itemName: "\uC815\uC2E0 \uC790\uADF9\uAE30"
+    shopLevel: 1
+    type: 1
+    dmg: 50
+    range: 1
+    cost: 200
+    cleanHitPoint: 250
+  - itemName: "6mm\uD0C4 \uBC1C\uC0AC"
+    shopLevel: 1
+    type: 2
+    dmg: 50
+    range: 1
+    cost: 200
+    cleanHitPoint: 250
+  - itemName: "\uC12C\uAD11"
+    shopLevel: 1
+    type: 3
+    dmg: 0
+    range: 1
+    cost: 300
+    cleanHitPoint: 0
+  - itemName: "\uC720\uB3C5\uAC00\uC2A4 \uC8FC\uC785"
+    shopLevel: 2
+    type: 0
+    dmg: 100
+    range: 1
+    cost: 500
+    cleanHitPoint: 0
+  - itemName: "\uC815\uC2E0 \uC790\uADF9 \uC548\uD14C\uB098"
+    shopLevel: 2
+    type: 1
+    dmg: 100
+    range: 1
+    cost: 500
+    cleanHitPoint: 700
+  - itemName: "9.62mm\uD0C4 \uBC1C\uC0AC"
+    shopLevel: 2
+    type: 2
+    dmg: 100
+    range: 1
+    cost: 500
+    cleanHitPoint: 700
+  - itemName: "\uCE74\uC6B4\uD130 \uC2E4\uB4DC"
+    shopLevel: 2
+    type: 3
+    dmg: 0
+    range: 2
+    cost: 400
+    cleanHitPoint: 0
+  - itemName: "\uC6D0\uACA9 \uC870\uC885\uAE30"
+    shopLevel: 2
+    type: 3
+    dmg: 0
+    range: 0
+    cost: 250
+    cleanHitPoint: 0
+  shilldItems:
+  - itemName: "\uC190\uC218\uAC74"
+    shopLevel: 1
+    type: 0
+    dmgReduction: 0.5
+    defCnt: 1
+    cost: 150
+    defSuccess: 350
+  - itemName: "\uADC0\uB9C8\uAC1C"
+    shopLevel: 1
+    type: 1
+    dmgReduction: 0.5
+    defCnt: 1
+    cost: 150
+    defSuccess: 350
+  - itemName: "\uBC29\uAC80\uBCF5"
+    shopLevel: 1
+    type: 2
+    dmgReduction: 0.5
+    defCnt: 1
+    cost: 150
+    defSuccess: 350
+  - itemName: "\uBC29\uB3C5\uBA74"
+    shopLevel: 2
+    type: 0
+    dmgReduction: 0
+    defCnt: 2
+    cost: 400
+    defSuccess: 0
+  - itemName: "\uC804\uD30C \uBC29\uD574\uAE30"
+    shopLevel: 2
+    type: 1
+    dmgReduction: 0
+    defCnt: 2
+    cost: 400
+    defSuccess: 0
+  - itemName: "\uAD70\uC6A9 \uC870\uB07C"
+    shopLevel: 2
+    type: 2
+    dmgReduction: 0
+    defCnt: 2
+    cost: 400
+    defSuccess: 0
+  - itemName: "\uBB34-\uBE59"
+    shopLevel: 2
+    type: 3
+    dmgReduction: 0
+    defCnt: 2
+    cost: 600
+    defSuccess: 0
+  - itemName: "\uC9C4\uD1B5\uC81C"
+    shopLevel: 2
+    type: 3
+    dmgReduction: 0
+    defCnt: 2
+    cost: 600
+    defSuccess: 0
