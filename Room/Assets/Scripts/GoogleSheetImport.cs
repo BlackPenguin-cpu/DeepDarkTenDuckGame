@@ -8,7 +8,11 @@ public class GoogleSheetImport : MonoBehaviour
     string atkURL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=tsv&range=A2:G";
     string defURL = "https://docs.google.com/spreadsheets/d/1RvibsVXEDGXlfVKYRA_1oLIjVxekg0dZqQiIvxrXb_c/export?format=tsv&range=A2:G&gid=1885389343";
     [SerializeField] private Items ItemData;
-    private IEnumerator Start()
+    private void Start()
+    {
+        StartCoroutine(TryDataLoad());
+    }
+    private IEnumerator TryDataLoad()
     {
         UnityWebRequest wwwAtk = UnityWebRequest.Get(atkURL);
         UnityWebRequest wwwDef = UnityWebRequest.Get(defURL);
@@ -16,9 +20,9 @@ public class GoogleSheetImport : MonoBehaviour
         SetItemSO(wwwAtk.downloadHandler.text, true);
         yield return wwwDef.SendWebRequest();
         SetItemSO(wwwDef.downloadHandler.text, false);
-        
+
     }
-    void SetItemSO(string tsv , bool _isAtkData)
+    void SetItemSO(string tsv, bool _isAtkData)
     {
         string[] row = tsv.Split('\n');
         int rowSize = row.Length;
