@@ -35,6 +35,11 @@ public class GoogleSheetImport : MonoBehaviour
             {
                 if (_isAtkData)
                 {
+                    if (rowSize > ItemData.attackItems.Count)
+                    {
+                        SAttackItemDictionary newItem = new SAttackItemDictionary();
+                        ItemData.attackItems.Add(newItem);
+                    }
                     SAttackItemDictionary atkItem = ItemData.attackItems[i];
                     atkItem.itemName = column[0];
                     atkItem.shopLevel = int.Parse(column[1]);
@@ -43,10 +48,14 @@ public class GoogleSheetImport : MonoBehaviour
                     atkItem.range = int.Parse(column[4]);
                     atkItem.cost = float.Parse(column[5]);
                     atkItem.cleanHitPoint = float.Parse(column[6]);
-
                 }
                 else
                 {
+                    if (rowSize > ItemData.shilldItems.Count)
+                    {
+                        SShilldItemDictionary newItem = new SShilldItemDictionary();
+                        ItemData.shilldItems.Add(newItem);
+                    }
                     SShilldItemDictionary defItem = ItemData.shilldItems[i];
                     defItem.itemName = column[0];
                     defItem.shopLevel = int.Parse(column[1]);
@@ -55,7 +64,6 @@ public class GoogleSheetImport : MonoBehaviour
                     defItem.defCnt = int.Parse(column[4]);
                     defItem.cost = float.Parse(column[5]);
                     defItem.defSuccess = float.Parse(column[6]);
-
                 }
             }
         }

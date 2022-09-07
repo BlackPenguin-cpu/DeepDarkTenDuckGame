@@ -22,15 +22,15 @@ public class SAttackItemDictionary
     public float cost;
     public float cleanHitPoint;
 
-    public SAttackItemDictionary(string itemName,int shopLevel, EItemType type, float dmg, int range, float cost, float cleanHitPoint)
+    public SAttackItemDictionary()
     {
-        this.itemName = itemName;
-        this.shopLevel = shopLevel;
-        this.type = type;
-        this.dmg = dmg;
-        this.range = range;
-        this.cost = cost;
-        this.cleanHitPoint = cleanHitPoint;
+        this.itemName = "Null";
+        this.shopLevel = 0;
+        this.type = EItemType.ETC;
+        this.dmg = 0;
+        this.range = 0;
+        this.cost = 0;
+        this.cleanHitPoint = 0;
     }
 }
 [Serializable]
@@ -44,15 +44,15 @@ public class SShilldItemDictionary
     public float cost;
     public float defSuccess;
 
-    public SShilldItemDictionary(string itemName,int shopLevel ,EItemType type, float dmgReduction, int defCnt, float cost, float defSuccess)
+    public SShilldItemDictionary()
     {
-        this.itemName = itemName;
-        this.shopLevel = shopLevel;
-        this.type = type;
-        this.dmgReduction = dmgReduction;
-        this.defCnt = defCnt;
-        this.cost = cost;
-        this.defSuccess = defSuccess;
+        this.itemName = "Null";
+        this.shopLevel = 0;
+        this.type = EItemType.ETC;
+        this.dmgReduction = 0;
+        this.defCnt = 0;
+        this.cost = 0;
+        this.defSuccess = 0;
     }
 }
 [CreateAssetMenu(fileName = "Items Data", menuName = "Scriptable Object/Items Data")]
